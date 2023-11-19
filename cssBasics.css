@@ -1,0 +1,313 @@
+/* grid / flexbox?
+grid - good for objects with the same size (like all the shoes objects).
+flexbox - good for not equal size objects (like the header bar).
+*/
+
+
+/* chapter 1 - basics */
+.btns {
+    cursor: pointer;                         /* when the mouse is on the object, we see a hand icon */
+    border-radius: 50px;                     /* make the object more circle */
+    margin-right: 100px;                      /* put space beteen the objects */
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* chapter 2 - hovers, transactions, shadows */
+
+/* when we are not on the button */
+.btns {
+    cursor: pointer;                         
+    border-radius: 50px;                     
+    margin-right: 100px;   
+    background-color: red; 
+    transition: opacity 5s, color 1s;         /* do the opacity (from hover) slowly */                
+}
+
+/* when we are on the button, this style now shown in addition to the father styles attributes */
+.btns:hover {
+    opacity: 0.3;              /* make the object brighter */     
+    background-color: red;                
+}
+
+/* when we click on the button button, this style now shown in addition to the father styles attributes */
+.btns:active {
+    color: blue;                     
+}
+
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* chapter 3 - chrome devTools && css box model */
+
+.btns {
+    /* margin - change the position of the object */
+    margin-top: 100px;
+
+    /* padding - better alternative to height and width */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+    vertical-align: top;    /* align the items based on the object's top and not on the text */
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* chapter 4 - text style */
+
+.parageaph {
+    font-weight: bold;       
+    font-style: italic;     
+    font-size: 20px;
+    text-align: center;   
+    line-height: 20px;              /* adjust the space between the text's lines */
+    /* width: 100px; */             /* force the text to go to a second line */      
+}
+
+
+.text-box {
+    font-weight: bold;  
+    color: white;
+    background-color: rgb(241, 90, 90);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    text-align: center; 
+}
+
+/* <p className="text-box"> this is my website. <span className="shop-now"> shop now </span> */
+/* <span> shop-now <span /> */
+.shop-now:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* chapter 5 - images and texts boxes */
+
+img {
+    height: 300px;
+    width: 300px;
+    object-fit: contain;    /* adjust the img so it won't cut anytthing */
+    object-fit: 300px;      /* adjust the img so it won't look but */
+    object-position: right; /* move the img to the right */
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* chapter 6 - css display property */
+
+/* inline-block:
+   make the 2 <p> and put them besides, in one line */
+   .first-text, .second-text {
+    display: inline-block;
+}
+
+/* block:
+   make the 2 <img> and put them in different lines */
+   .imag1 {
+    display: block;
+    margin-bottom: 200px;
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* chapter 7 - nested layout technique */
+
+.small-img {
+    border-radius: 100px;
+    height: 80px;
+    width: auto;
+    margin-left: 10px;
+
+    vertical-align: top;        /* make it vertical (like in a box of it's own) */
+}
+/* ------------------------------------------------------------------------------------------------ */
+
+/* chapter 8 - css grid */
+
+/* first example */
+.container {
+    display: grid;                              /* set the style to grid */
+    grid-template-columns: 200px 1fr 2fr;       /* fr = free place */
+    grid-template-rows: 100px;
+}
+
+.div1 {
+    background-color: pink;
+}
+
+.div2 {
+    background-color: greenyellow;
+}
+
+.div3 {
+    background-color: red;
+}
+
+
+/* second example */
+.container1 {
+    display: grid;                              /* set the style to grid */
+    grid-template-columns: 1fr 1fr 1fr;        /* fr = free place */
+    grid-template-rows: 100px 100px 100px;    
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.div3 {
+    background-color: red;
+
+}
+
+.div4 {
+    background-color: blue;
+
+}
+
+.div5 {
+    background-color: greenyellow;
+}
+
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* chapter 9 - flexbox */
+
+/* first example */
+.heading {
+    display: flex;
+    flex-direction: row;            /* now they like inline-block. they take only the space they need */
+    margin-top: 20px;
+}
+
+.div1 {
+    background-color: blueviolet;
+    width: 100px;
+}
+
+.div2 {
+    background-color: rgb(226, 86, 43);
+    flex: 1;                    /* take all the rest of the space */
+}
+
+
+/* second example */
+.heading {
+    display: flex;
+    flex-direction: row;            
+    margin-top: 20px;
+    justify-content: space-between ;        /* put space betwwent he elemnts */
+    width: 600px;   
+}
+
+.div1 {
+    background-color: blueviolet;
+    width: 100px;
+}
+
+.div2 {
+    background-color: rgb(226, 86, 43);
+    width: 100px;
+}
+
+.div2 {
+    background-color: rgb(43, 226, 52);
+    width: 100px;
+}
+
+
+/* third example - execllent for my website! */
+.heading {
+    display: flex;
+    flex-direction: row;                /* make it horizontal */         
+    margin-top: 20px;
+    height: 300px; 
+    justify-content: space-between;
+}
+
+.left-section {
+    background-color: blueviolet;
+    width: 200px;
+}
+
+.mid-section {
+    background-color: rgb(226, 86, 43);
+    flex: 1;                        /* make it adjust it size */
+    max-width: 3000px;               /* can't be bigger */
+    margin-left: 30px;
+}
+
+.right-section {
+    background-color: rgb(43, 226, 52);
+    width: 300px;
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* chapter 10 - nested flexbox */
+
+/* HTML:
+    <div className="heading">
+
+        <div className="left-section">  
+            <img className='youTubeLogo' src= "https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png?20220706172052" />
+        </div>
+
+        <div className="mid-section"> mid  </div>
+
+        <div className="right-section"> right  </div>
+ 
+    </div>
+*/ 
+
+/* css: */
+.left-section {
+    background-color: blueviolet;
+    width: 200px;
+    align-items: center;
+    display: flex;                      /* make it in the center */
+}
+
+
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* chapter 11 - css position */
+
+.bar {
+    height: 60px;
+    background-color: black;
+    color: white;
+    width: 3000px;
+    position: fixed;                /* make it stick to the screen */
+    top: 0px;                       /* the gap between the top of the screen */
+    left: 0px;                      /* the gap between the left of the screen */
+    right: 0px;                     /* the gap between the right of the screen */
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* chapter 12 - position absolote relative */
+
+/* position: absolute;
+make it stick to the page , and don't move when we screoll. */
+
+/* z-index - the object with the higher number will apear before the object with the smaller number.
+   z-index: 0; 
+   z-index: 1;   (the upper object)   */
+
+
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* chapter 13 - position absolute and relative */
+
+
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* chapter 14 -  */
